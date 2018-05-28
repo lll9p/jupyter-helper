@@ -1,0 +1,14 @@
+*~
+._*
+.*.swp
+.*.swo
+*.pyc
+*.log
+.DS_Store
+.directory
+.idea
+.project
+.pydevproject
+.ipynb_checkpoints
+__pycache__
+plotly_config.py
