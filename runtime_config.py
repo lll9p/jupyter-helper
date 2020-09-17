@@ -1,9 +1,15 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# ©Lao https://laolilin.com
+# File              : runtime_config.py
+# Author            : lll9p <lll9p.china@gmail.com>
+# Date              : 29.04.2019
+# Last Modified Date: 29.04.2019
+# Last Modified By  : lll9p <lll9p.china@gmail.com>
 
 try:
     from .plotly_config import plotly_username, plotly_api_key
-except ImportError as e:
+except ImportError:
     plotly_username = ''
     plotly_api_key = ''
 
