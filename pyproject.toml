@@ -18,4 +18,8 @@ classifiers = [
 dependencies = ['ipython', 'pandas']
 dynamic = ["version"]
 
+[project.urls]
+homepage = "https://github.com/lll9p/jupyter-helper"
+repository = "https://github.com/lll9p/jupyter-helper"
+
 [tool.setuptools_scm]
