@@ -13,3 +13,4 @@
 *.egg-info
 pyrightconfig.json
 __pycache__
+dist
