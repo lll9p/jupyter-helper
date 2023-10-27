@@ -1,3 +1,14 @@
+Quickstart
+----------
+
+.. teaser-begin
+
+A helper for jupyter(lab/notebook/console).
+
+|python-support| |downloads| |license| |black| |openissues| |GHDiscussion|
+
+.. teaser-end
+
 Installation
 ------------
 
@@ -20,3 +31,27 @@ to run:
 
 or
   helper.done()
+
+.. |latest-version| image:: https://img.shields.io/pypi/v/jupyter-helper.svg
+   :alt: Latest version on PyPI
+   :target: https://pypi.org/project/jupyter-helper
+.. |python-support| image:: https://img.shields.io/pypi/pyversions/jupyter-helper.svg
+   :target: https://pypi.org/project/jupyter-helper
+   :alt: Python versions
+.. |downloads| image:: https://img.shields.io/pypi/dm/jupyter-helper.svg
+   :alt: Monthly downloads from PyPI
+   :target: https://pypi.org/project/jupyter-helper
+.. |license| image:: https://img.shields.io/pypi/l/jupyter-helper.svg
+   :alt: Software license
+   :target: https://github.com/lll9p/jupyter-helper/blob/master/LICENSE
+.. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+    :alt: Black Formatter
+.. |openissues| image:: http://isitmaintained.com/badge/open/lll9p/jupyter-helper.svg
+    :target: http://isitmaintained.com/project/lll9p/jupyter-helper
+    :alt: Percentage of open issues
+.. |GHAction| image:: https://github.com/lll9p/jupyter-helper/workflows/Python/badge.svg
+    :alt: Python
+.. |GHDiscussion| image:: https://shields.io/badge/GitHub-%20Discussions-green?logo=github
+    :target: https://github.com/lll9p/jupyter-helper/discussions
+    :alt: GitHub Discussion
