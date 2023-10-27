@@ -98,7 +98,7 @@ class Helper:
             func = self.modules.get(name)
             if callable(func):
                 success = func(helper=self, spec=spec)
-                if success:
+                if success and spec.get("insert"):
                     self.fake_run["modules"].append(import_formatter(spec))
         return self
 
