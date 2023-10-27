@@ -81,37 +81,6 @@ class Helper:
         self._register_modules()
         self._extend_handlers()
 
-    def _register_modules(self):
-        self.data = Data()
-        self.misc = Misc(ipy=self.ipy, support_html=self.is_ipy_support_html)
-        self.pandas = PandasTricks(support_html=self.is_ipy_support_html)
-
-    def _extend_handlers(self):
-        if not self.override_handlers.name.endswith(".py"):
-            warnings.warn("override_handlers is not a python file.")
-            return
-        sys.path.append(str(self.override_handlers.absolute().parent))
-        override_handlers_package = self.override_handlers.stem
-        override_handlers = importlib.import_module(name=override_handlers_package)
-        if hasattr(override_handlers, "modules"):
-            modules = override_handlers.modules
-            self.modules.update(func_lst_to_dict(modules))
-        if hasattr(override_handlers, "magics"):
-            magics = override_handlers.magics
-            self.magics.update(func_lst_to_dict(magics))
-
-    def _read_config(self) -> Dict:
-        config: Dict
-        config_path = __default_config__
-        with open(config_path, mode="rb") as file:
-            config = tomllib.load(file)
-        current_config_path = __override_config__
-        if current_config_path.exists():
-            with open(current_config_path, mode="rb") as file:
-                current_config = tomllib.load(file)
-                config = merge_dicts(config, current_config)
-        return config
-
     def set_global_values(self) -> Self:
         global_values = self.config.get("globalvalues")
         if not global_values:
@@ -161,3 +130,37 @@ class Helper:
         else:
             print(done_mes)
         return self
+
+    def _extend_handlers(self):
+        if not self.override_handlers.name.endswith(".py"):
+            warnings.warn("override_handlers is not a python file.")
+            return
+        sys.path.append(str(self.override_handlers.absolute().parent))
+        override_handlers_package = self.override_handlers.stem
+        try:
+            override_handlers = importlib.import_module(name=override_handlers_package)
+            if hasattr(override_handlers, "modules"):
+                modules = override_handlers.modules
+                self.modules.update(func_lst_to_dict(modules))
+            if hasattr(override_handlers, "magics"):
+                magics = override_handlers.magics
+                self.magics.update(func_lst_to_dict(magics))
+        except ModuleNotFoundError:
+            return
+
+    def _read_config(self) -> Dict:
+        config: Dict
+        config_path = __default_config__
+        with open(config_path, mode="rb") as file:
+            config = tomllib.load(file)
+        current_config_path = __override_config__
+        if current_config_path.exists():
+            with open(current_config_path, mode="rb") as file:
+                current_config = tomllib.load(file)
+                config = merge_dicts(config, current_config)
+        return config
+
+    def _register_modules(self):
+        self.data = Data()
+        self.misc = Misc(ipy=self.ipy, support_html=self.is_ipy_support_html)
+        self.pandas = PandasTricks(support_html=self.is_ipy_support_html)
