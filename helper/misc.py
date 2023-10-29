@@ -3,6 +3,7 @@
 from typing import Callable
 
 from IPython.core.interactiveshell import InteractiveShell
+from IPython.display import Markdown, display
 
 
 class Misc:
@@ -18,3 +19,11 @@ class Misc:
         import inspect
 
         self.ipy.set_next_input("".join(inspect.getsourcelines(function)[0]))
+
+    def printmd(self, string, color=None):
+        """
+        https://github.com/NirantK/best-of-jupyter
+        Including markdown in your code’s output is very useful. Use this to highlight parameters, performance notes and so on. This enables colors, Bold, etc.
+        """
+        colorstr = "<span style='color:{}'>{}</span>".format(color, string)
+        display(Markdown(colorstr))
