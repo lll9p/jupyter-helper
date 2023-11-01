@@ -105,7 +105,7 @@ class Helper:
     def run_magics(self) -> Self:
         magic_specs = self.config["magics"]
         for name, spec in magic_specs.items():
-            func = self.magics.get(name)
+            func = self.magics.get("magics_" + name)
             if callable(func):
                 func(helper=self, spec=spec)
         return self
