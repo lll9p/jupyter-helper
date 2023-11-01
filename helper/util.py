@@ -17,10 +17,10 @@ def handler_get_lib(scope: Dict, spec: Dict) -> ModuleType:
 
 def magic_handler(func: Callable) -> Any:
     @functools.wraps(func)
-    def inner(self, *args, **kwargs) -> Any:
-        if self.ipy is None:
+    def inner(helper, *args, **kwargs) -> Any:
+        if helper.ipy is None:
             raise RuntimeError("IPython not found.")
-        return func(self, *args, **kwargs)
+        return func(helper, *args, **kwargs)
 
     return inner
 
