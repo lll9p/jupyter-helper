@@ -16,7 +16,7 @@ classifiers = [
   "Operating System :: OS Independent",
 ]
 dependencies = ['ipython', 'pandas']
-version = "0.0.1.post2"
+version = "0.0.1.post3"
 
 [project.urls]
 homepage = "https://github.com/lll9p/jupyter-helper"
